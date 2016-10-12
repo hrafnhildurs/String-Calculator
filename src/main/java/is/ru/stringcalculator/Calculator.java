@@ -9,15 +9,22 @@ public class Calculator {
 		}
 		else if(text.contains(","))
 		{
-			int sum = 0;
-			String[] num = text.split(",");
-			for(String n : num)
-			{
-				sum += Integer.parseInt(n);
-			}
-			return sum;
+			return sum(splitInput(text));
 		}
 		else
 			return 1;
+	}
+
+	private static String[] splitInput(String input){
+		return input.split(",");
+	}
+
+	private static int sum(String[] num){
+		int sum = 0;
+		for(String n : num)
+		{
+			sum += Integer.parseInt(n);
+		}
+		return sum;
 	}
 }
