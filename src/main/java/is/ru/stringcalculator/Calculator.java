@@ -23,7 +23,12 @@ public class Calculator {
 		int sum = 0;
 		for(String n : num)
 		{
-			sum += Integer.parseInt(n);
+			if(Integer.parseInt(n) > 1000)
+			{
+				sum += 0;
+			}
+			else
+				sum += Integer.parseInt(n);
 		}
 		return sum;
 	}
