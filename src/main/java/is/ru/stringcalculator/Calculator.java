@@ -7,7 +7,7 @@ public class Calculator {
 		{
 			return 0;	
 		}
-		else if(text.contains(","))
+		else if(text.contains(",") || text.contains("\n"))
 		{
 			return sum(splitInput(text));
 		}
@@ -16,7 +16,7 @@ public class Calculator {
 	}
 
 	private static String[] splitInput(String input){
-		return input.split(",");
+		return input.split(",|\n");
 	}
 
 	private static int sum(String[] num){
