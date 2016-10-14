@@ -27,6 +27,9 @@ public class Calculator {
 			return 1;
 	}
 
+	private static int toInt(String n){
+		return Integer.parseInt(n);
+	}
 	private static String[] splitInput(String input){
 		return input.split(",|\n");
 	}
@@ -39,12 +42,12 @@ public class Calculator {
 		int sum = 0;
 		for(String n : num)
 		{
-			if(Integer.parseInt(n) > 1000)
+			if(toInt(n) > 1000)
 			{
 				sum += 0;
 			}
 			else
-				sum += Integer.parseInt(n);
+				sum += toInt(n);
 		}
 		return sum;
 	}
@@ -55,7 +58,7 @@ public class Calculator {
 		{
 			if(Integer.parseInt(n) < 0)
 			{
-				negNum.add(Integer.parseInt(n));
+				negNum.add(toInt(n));
 			}
 		}
 		if(!negNum.isEmpty())
@@ -68,9 +71,6 @@ public class Calculator {
 			throw new IllegalArgumentException(msg);
 		}
 	} 
+
 	
-	public static void main ( String [] args )
-	{
-		Calculator.add("-1,2");
-	}
 }
