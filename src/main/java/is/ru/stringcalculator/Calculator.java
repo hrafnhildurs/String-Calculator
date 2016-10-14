@@ -10,6 +10,14 @@ public class Calculator {
 		{
 			return 0;	
 		}
+		if(text.startsWith("//"))
+		{
+			String regEx = text.substring(2,3);
+			String[] t = text.split("\n");
+			text = t[1].toString();
+			return sum(splitInput(text, regEx));
+
+		}
 		negative(splitInput(text));
 		if(text.contains(",") || text.contains("\n"))
 		{
@@ -21,6 +29,10 @@ public class Calculator {
 
 	private static String[] splitInput(String input){
 		return input.split(",|\n");
+	}
+
+	private static String[] splitInput(String input, String regEx){
+		return input.split(regEx);
 	}
 
 	private static int sum(String[] num){
@@ -56,5 +68,9 @@ public class Calculator {
 			throw new IllegalArgumentException(msg);
 		}
 	} 
-
+	
+	public static void main ( String [] args )
+	{
+		Calculator.add("-1,2");
+	}
 }
